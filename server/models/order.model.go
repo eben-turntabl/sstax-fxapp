@@ -18,6 +18,19 @@ type ClientOrder struct {
 	ClientID   string    `json:"client_id" bson:"client_id"`
 }
 
+type FXOrder struct {
+	Symbol     string    `json:"symbol" bson:"symbol"`
+	PlacedAt   time.Time `json:"placed_at" bson:"placed_at"`
+	Price      int       `json:"price" bson:"price"`
+	Side       string    `json:"side" bson:"side"`
+	Ticker     string    `json:"ticker" bson:"ticker"`
+	Status     string    `json:"status" bson:"status"`
+	Quantity   int       `json:"quantity" bson:"quantity"`
+	PorfolioID string    `json:"portfolio_id" bson:"portfolio_id"`
+	ClientID   string    `json:"client_id" bson:"client_id"`
+}
+
+
 type OrderDBResponse struct {
 	ID         primitive.ObjectID `json:"id" bson:"_id" binding:"required"`
 	Symbol     string             `json:"symbol" bson:"symbol"`
