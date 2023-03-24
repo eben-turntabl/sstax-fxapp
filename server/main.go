@@ -8,9 +8,12 @@ import (
 	"example/server/controllers"
 	"example/server/routes"
 	"example/server/services"
+	"example/server/utils"
 	"fmt"
 	"log"
+	"reflect"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
@@ -24,17 +27,29 @@ var(
 	server *gin.Engine
 	ctx	context.Context
 
+
+	exchangeService services.ExchangeService
 	userService	services.ClientService
 	authService	services.AuthService
+	orderService	services.OrderService
+
 	AuthController controllers.AuthController
+	clientController controllers.ClientController
+
 	AuthRouteController routes.AuthRouteController
+	ClientRouteController routes.ClientRouteController
 	authCollection *mongo.Collection
+	orderCollection *mongo.Collection
 )
 func init(){
 
 serverAPI := options.ServerAPI(options.ServerAPIVersion1)
 
-opts := options.Client().ApplyURI(dbUri).SetServerAPIOptions(serverAPI)
+opts := options.Client().ApplyURI(dbUri).SetServerAPIOptions(serverAPI).SetRegistry(bson.NewRegistryBuilder().
+RegisterDecoder(reflect.TypeOf(""),utils.NullawareStrDecoder{}).
+Build(),)
+
+
 
 client,err := mongo.Connect(context.Background(),opts)
 
@@ -53,6 +68,9 @@ if err := client.Ping (ctx , readpref.Primary()); err != nil{
 }
 
 authCollection =(client.Database("sstax_db").Collection("users"))
+
+orderCollection =(client.Database("sstax_db").Collection("orders"))
+
 nameee, errw := authCollection.Indexes().CreateOne(context.Background(),(mongo.IndexModel{Keys: bson.M{"email":1},Options: options.Index().SetUnique(true)}))	
 	fmt.Println(nameee, "yolo", errw)
 if errw != nil{
@@ -63,17 +81,24 @@ fmt.Println("Connected to MongoDB")
 
 
 
-userService = services.NewClientServiceImpl(authCollection,ctx)
+userService = services.NewClientService(authCollection,ctx)
+orderService = services.NewOrderService(orderCollection,ctx,authCollection)
 authService = services.NewAuthService(authCollection,ctx)
+exchangeService = services.NewExchangeService(authCollection,context.Background())
+
 AuthController = controllers.NewAuthController(authService, userService)
+clientController = controllers.NewClientController(userService,exchangeService,orderService)
 AuthRouteController =routes.NewAuthRouteController(AuthController)
+ClientRouteController=routes.NewClientRouteController(clientController)
 server = gin.Default()
+server.Use(cors.Default())
 }
 func main(){
 router := server.Group("/api")
 
 
 AuthRouteController.AuthRoute(router)
+ClientRouteController.ClientRoute(router)
 log.Fatal(server.Run(":8080"))
 
 }

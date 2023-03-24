@@ -41,11 +41,10 @@ func (uc *AuthServiceImpl) UserRegister(user *models.ClientSignup) (*models.DBRe
 	_ , err := uc.FindUserByEmail(user.Email)
 	
 	
-	if err != nil {
+	// if err != nil {
+	// 	return nil, errors.New("Email already exists")
+	// }
 
-		return nil, errors.New("Email already exists")
-		
-	}
 	res, err := uc.collection.InsertOne(uc.ctx,&user)
 	fmt.Println(res)
 	fmt.Println(err)

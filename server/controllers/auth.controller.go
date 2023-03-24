@@ -56,6 +56,7 @@ return
 			ctx.JSON(http.StatusConflict,gin.H{"status":"error","message":err.Error()})
 		
 	}else {
+		
 		ctx.IndentedJSON(http.StatusCreated,newUser)
 
 	}
