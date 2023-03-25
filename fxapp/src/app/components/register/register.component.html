@@ -1,25 +1,32 @@
-<div class="h-screen flex justify-center  w-full items-center main ">
+<div class="h-screen flex justify-center  w-full items-center main register-bg">
 
-  <form class="flex flex-col w-96 " >
+  <form [formGroup]="registerForm" (ngSubmit)="submit()"  class="flex flex-col w-96 register-page" >
+    <span class="font-bold mt-1 mb-2 justify-center"> <h1 >HI, there!</h1></span>
+    <p class ="font-bold mb-4 justify-center">Please fill in your credentials to register</p>
+
+
     <label>First Name </label>
-    <input class="border border-black" type="text" name="f_name"/>
+    <input class="border border-black bg-gray border mt-2 mb-6 rounded-lg" type="text" name="f_name" formControlName="first_name"  id="f_name"/>
 
 
     <label>Last Name </label>
-    <input class="border border-black" type="text" name="l_name"/>
+    <input class="border border-blackbg-gray border mt-2 mb-6 rounded-lg"  formControlName="last_name"  type="text" name="l_name"  id="l_name"/>
 
 
     <label>Email</label>
-    <input class="border border-black" type="text" name="email"/>
+    <input class="border border-black bg-gray border mt-2 mb-6 rounded-lg" type="text" name="email" formControlName="email"  id="email" />
 
 
 
     <label>Password</label>
-    <input  class="border border-black" type="password" name="password"/>
+    <input  class="border border-black bg-gray border mt-2 mb-6 rounded-lg" type="password" name="password" formControlName="password"  id="password"/>
+
+    <label>Confirm Password</label>
+    <input  class="border border-black bg-gray border mt-2 mb-6 rounded-lg" type="password" name="confirmPassword"  id="confirmPassword"/>
 
 
 
-    <button type="submit" name="registerbtn">Register</button>
+    <button type="submit" class="bg-black rounded-full" name="registerbtn"><b style="color:white">Register</b></button>
 
     </form>
 

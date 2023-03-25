@@ -1,0 +1,30 @@
+<div class="h-screen flex justify-center  w-full items-center main ">
+
+  <form (ngSubmit)="submit()" class="flex flex-col w-96 " >
+    <label>First Name </label>
+    <input class="border border-black" type="text" name="f_name" [(ngModel)]="form.f_name" id="f_name"/>
+
+
+    <label>Last Name </label>
+    <input class="border border-black" type="text" name="l_name" [(ngModel)]="form.l_name" id="l_name"/>
+
+
+    <label>Email</label>
+    <input class="border border-black" type="text" name="email" [(ngModel)]="form.email" id="email" />
+
+
+
+    <label>Password</label>
+    <input  class="border border-black" type="password" name="password" [(ngModel)]="form.password" id="password"/>
+
+    <label>Confirm Password</label>
+    <input  class="border border-black" type="password" name="confirmPassword" [(ngModel)]="form.confirmPassword" id="confirmPassword"/>
+
+
+
+    <button type="submit" name="registerbtn">Register</button>
+
+    </form>
+
+</div>
+

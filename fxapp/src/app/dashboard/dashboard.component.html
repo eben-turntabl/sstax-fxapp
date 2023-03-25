@@ -1,0 +1,43 @@
+<div class="bg-gray main">
+  <c-col class="bg-gray-64 shadow-lg shadow-gray-200 rounded-2xl p-4 w-full h-full">
+    <c-card class="mb-4">
+      <c-card-body >
+
+
+
+        <div class="flex mb-2 gap-1">
+          <app-wallet *ngFor="let userCurrency of usersCurrency" [currencyArray]="userCurrency"></app-wallet>
+
+        </div>
+
+        <div class="flex gap-2 w-full">
+          <div class="w-1/2">
+            <app-operation-card></app-operation-card>
+          </div>
+          <div class="w-1/2">
+            <app-withdraw-card></app-withdraw-card></div>
+
+
+        </div>
+
+        <div class>
+          <app-orders-card></app-orders-card>
+        </div>
+
+
+
+
+
+      </c-card-body>
+    </c-card>
+  </c-col>
+</div>
+
+
+
+
+
+
+
+
+

@@ -29,8 +29,15 @@ func (uc *AuthServiceImpl) UserRegister(user *models.ClientSignup) (*models.DBRe
 	user.CreatedAt=time.Now()
 	user.Email=strings.ToLower(user.Email)
 	user.Role="user"
+	user.Wallet.GHS.Currency="GHS"
+	user.Wallet.NGN.Currency="NGN"
+	user.Wallet.KES.Currency="KES"
+	user.Wallet.USD.Currency="USD"
 	user.Wallet.GHS.IsActive = true
+	user.Wallet.GHS.Amount= 50000
+	user.Wallet.USD.Amount= 200000
 	user.Wallet.USD.IsActive = true
+
 
 	hashedPassword, _ := utils.HashPassword(user.Password)
 	user.Password = hashedPassword

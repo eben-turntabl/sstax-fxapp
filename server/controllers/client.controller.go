@@ -20,12 +20,12 @@ func NewClientController(clientService services.ClientService, exchangeService s
 }
 
 func (cc ClientController) PlaceOrder(ctx *gin.Context) {
-	var orderInfo *models.ClientOrder
+	var orderInfo *models.FXOrder
 
 	if err := ctx.ShouldBindJSON(&orderInfo); err != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{"status": "error", "message": err.Error()})
 	}
-	resp,err := cc.orderService.PlaceOrder(orderInfo)
+	resp,err := cc.orderService.PurchaseOrder(orderInfo)
 	if err != nil {
 		fmt.Printf("Order Invalid: %v\n", err)
 
@@ -55,7 +55,7 @@ func (cc ClientController) CheckOrder(ctx *gin.Context) {
 
 		return
 	} else {
-		ctx.IndentedJSON(http.StatusAccepted, gin.H{"status": "success", "data": resp.Status})
+		ctx.IndentedJSON(http.StatusAccepted, gin.H{"status": "success", "data": resp})
 
 	}
 

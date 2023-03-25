@@ -22,18 +22,22 @@ type ClientSignup struct {
 		USD struct {
 			Amount   int  `json:"amount" bson:"amount"`
 			IsActive bool `json:"is_active" bson:"is_active"`
+			Currency string `json:"currency" bson:"currency" default:"USD"`
 		} `json:"USD" bson:"USD"`
 		GHS struct {
 			Amount   int  `json:"amount" bson:"amount"`
 			IsActive bool `json:"is_active" bson:"is_active"`
+			Currency string `json:"currency" bson:"currency" default:"GHS"`
 		} `json:"GHS" bson:"GHS"`
 		KES struct {
 			Amount   int  `json:"amount" bson:"amount"`
 			IsActive bool `json:"is_active" bson:"is_active"`
+			Currency string `json:"currency" bson:"currency" default:"KES"`
 		} `json:"KES" bson:"KES"`
 		NGN struct {
 			Amount   int  `json:"amount" bson:"amount"`
 			IsActive bool `json:"is_active" bson:"is_active"`
+			Currency string `json:"currency" bson:"currency" default:"NGN"`
 		} `json:"NGN" bson:"NGN"`
 	} `json:"wallet" bson:"wallet"`
 
@@ -64,18 +68,22 @@ type UserUpdate struct {
 		USD struct {
 			Amount   int  `json:"amount,omitempty" bson:"amount,omitempty"`
 			IsActive bool `json:"is_active,omitempty" bson:"is_active,omitempty"`
+			Currency string `json:"currency,omitempty" bson:"currency,omitempty" default:"USD"`
 		} `json:"USD,omitempty" bson:"USD,omitempty"`
 		GHS struct {
 			Amount   int  `json:"amount,omitempty" bson:"amount,omitempty"`
 			IsActive bool `json:"is_active,omitempty" bson:"is_active,omitempty"`
+			Currency string `json:"currency,omitempty" bson:"currency,omitempty" default:"GHS"`
 		} `json:"GHS,omitempty" bson:"GHS,omitempty"`
 		KES struct {
 			Amount   int  `json:"amount,omitempty" bson:"amount,omitempty"`
 			IsActive bool `json:"is_active,omitempty" bson:"is_active,omitempty"`
+			Currency string `json:"currency,omitempty" bson:"currency,omitempty" default:"KES"`
 		} `json:"KES,omitempty" bson:"KES,omitempty"`
 		NGN struct {
 			Amount   int  `json:"amount,omitempty" bson:"amount,omitempty"`
 			IsActive bool `json:"is_active,omitempty" bson:"is_active,omitempty"`
+			Currency string `json:"currency,omitempty" bson:"currency,omitempty" default:"NGN"`
 		} `json:"NGN,omitempty" bson:"NGN,omitempty"`
 	} `json:"wallet,omitempty" bson:"wallet,omitempty"`
 
@@ -108,18 +116,22 @@ type DBResponse struct {
 		USD struct {
 			Amount   int  `json:"amount" bson:"amount"`
 			IsActive bool `json:"is_active" bson:"is_active"`
+			Currency string `json:"currency" bson:"currency" default:"USD"`
 		} `json:"USD" bson:"USD"`
 		GHS struct {
 			Amount   int  `json:"amount" bson:"amount"`
 			IsActive bool `json:"is_active" bson:"is_active"`
+			Currency string `json:"currency" bson:"currency" default:"GHS"`
 		} `json:"GHS" bson:"GHS"`
 		KES struct {
 			Amount   int  `json:"amount" bson:"amount"`
 			IsActive bool `json:"is_active" bson:"is_active"`
+			Currency string `json:"currency" bson:"currency" default:"KES"`
 		} `json:"KES" bson:"KES"`
 		NGN struct {
 			Amount   int  `json:"amount" bson:"amount"`
 			IsActive bool `json:"is_active" bson:"is_active"`
+			Currency string `json:"currency" bson:"currency" default:"NGN"`
 		} `json:"NGN" bson:"NGN"`
 	} `json:"wallet" bson:"wallet"`
 

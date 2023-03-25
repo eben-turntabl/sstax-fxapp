@@ -1,1 +1,22 @@
-.main{background-color:  hsl(257, 40%, 49%);}
+.main2{background-color: #ECECEE;}
+
+.login-bg{
+  /* From https://css.glass */
+background: rgba(223, 122, 14, 0);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(4.1px);
+-webkit-backdrop-filter: blur(4.1px);
+border: 1px solid rgba(223, 122, 14, 0.76);
+}
+
+
+.login-page{
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+

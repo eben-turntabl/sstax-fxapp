@@ -1,0 +1,65 @@
+
+<c-col class="bg-white shadow-lg shadow-gray-200 rounded-2xl object-fill p-4 max-w-8xl h-52">
+  <c-card class="mb-4 ">
+
+
+
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <tr>
+              <th scope="col" class="px-6 py-3">
+                  OrderID
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Provider
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Currency
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Bank Account
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Amount
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Status
+            </th>
+          </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orderList; let i =index">
+          <td scope="col" class="px-6 py-3">
+              {{i}}
+          </td>
+          <td scope="col" class="px-6 py-3">
+              {{order.provider_id}}
+          </td>
+          <td scope="col" class="px-6 py-3">
+              {{order.currency}}
+          </td>
+          <td scope="col" class="px-6 py-3">
+              {{order.bank_account}}
+          </td>
+          <td scope="col" class="px-6 py-3">
+              {{order.amount}}
+          </td>
+          <td scope="col" class="px-6 py-3">
+            Fulfilled
+        </td>
+      </tr>
+      </tbody>
+  </table>
+</div>
+
+
+
+  </c-card>
+</c-col>
+
+
+
+
+

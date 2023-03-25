@@ -19,17 +19,27 @@ type ClientOrder struct {
 }
 
 type FXOrder struct {
-	Symbol     string    `json:"symbol" bson:"symbol"`
+	Currency     string    `json:"currency" bson:"currency"`
 	PlacedAt   time.Time `json:"placed_at" bson:"placed_at"`
-	Price      int       `json:"price" bson:"price"`
-	Side       string    `json:"side" bson:"side"`
-	Ticker     string    `json:"ticker" bson:"ticker"`
+	Amount      int       `json:"amount" bson:"amount"`
 	Status     string    `json:"status" bson:"status"`
-	Quantity   int       `json:"quantity" bson:"quantity"`
-	PorfolioID string    `json:"portfolio_id" bson:"portfolio_id"`
+	BankAccount string    `json:"bank_account" bson:"bank_account"`
 	ClientID   string    `json:"client_id" bson:"client_id"`
+	ProviderID string `json:"provider_id" bson:"provider_id"`
+	Email 		string `json:"email" bson:"email"`
 }
 
+
+type FXOrderDBResponse struct {
+	ID         primitive.ObjectID `json:"id" bson:"_id" binding:"required"`
+	Currency     string    `json:"currency" bson:"currency"`
+	PlacedAt   time.Time `json:"placed_at" bson:"placed_at"`
+	Amount      int       `json:"amount" bson:"amount"`
+	Status     string    `json:"status" bson:"status"`
+	BankAccount string    `json:"bank_account" bson:"bank_account"`
+	ClientID   string    `json:"client_id" bson:"client_id"`
+	ProviderID string `json:"provider_id" bson:"provider_id"`
+}
 
 type OrderDBResponse struct {
 	ID         primitive.ObjectID `json:"id" bson:"_id" binding:"required"`

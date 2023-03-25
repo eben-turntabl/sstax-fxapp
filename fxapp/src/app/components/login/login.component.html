@@ -1,15 +1,22 @@
-<div class="h-screen flex justify-center  w-full items-center main ">
-<form class="flex flex-col">
+<div class="h-screen flex justify-center  w-full items-center login-bg ">
 
-<label>Username</label>
-<input lass="border border-black" type="text" name="username"/>
+
+<form [formGroup]="loginForm" (ngSubmit)="submit()" class="flex flex-col login-page w-50 h-75">
+
+  <span class="font-bold mt-1 mb-2 justify-center"> <h1 >Welcome back!</h1></span>
+  <p class ="font-bold mb-4 justify-center">Please fill in your credentials to continue</p>
+
+
+
+<label>Email</label>
+<input class="border border-black bg-gray border mt-2 mb-6  rounded-lg" formControlName="email" type="text" id="email" name="email"/>
 
 <label>Password</label>
-<input lass="border border-black" type="password" name="password"/>
+<input class="border border-black bg-gray border mt-2 mb-6  rounded-lg" type="password" id="password"  formControlName="password"  name="password"/>
 
 
 
-<button type="submit" name="loginbtn">Login</button>
+<button type="submit"  class="bg-black rounded-full" name="loginbtn"><b style="color:white">Login</b></button>
 
 </form>
 

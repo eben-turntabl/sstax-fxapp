@@ -1,0 +1,40 @@
+
+<c-col class="bg-white shadow-lg shadow-gray-200 rounded-2xl p-5 w-50 h-75 cbg2">
+  <c-card class="mb-4 ">
+    <c-card-body >
+      <form [formGroup]="orderForm" (ngSubmit)="purchase()" class="flex flex-col">
+
+        <label > BUY</label>
+        <select  class ="bg-white border mt-1 mb-2 rounded-lg " name="from_curr" id="from_curr" formControlName="currency">
+          <option value="USD">USD</option>
+          <option value="NGN">NGN</option>
+          <option value="KES">KES</option>
+          <option value="GHS">GHS</option>
+        </select>
+
+        <label > Amount</label>
+        <input  class= "border mt-1 mb-2  rounded-lg " type="number" name="amount" formControlName="amount" />
+
+        <label > Back Account</label>
+        <select class ="bg-white border mt-1 mb-2  rounded-lg" name="bank_account" id="bank_account" formControlName="bank_account">
+          <option value="account1">account1</option>
+          <option value="account2">account2</option>
+        </select>
+        <label > FX Provider</label>
+        <select class ="bg-white border mt-1 mb-2 rounded-lg" name="provider_id" id="provider_id" formControlName="provider_id">
+          <option value="MakolaFX">MakolaFX</option>
+          <option value="ToukunyaFX">ToukunyaFX</option>
+        </select>
+
+
+
+        <button type="submit"  class ="rounded-lg btn1bg" name="purchasebtn"><b>Purchase</b></button>
+
+      </form>
+
+
+
+    </c-card-body>
+  </c-card>
+</c-col>
+

@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 
+
 	"example/server/models"
 	"example/server/utils"
 	"fmt"
@@ -29,6 +30,7 @@ func NewExchangeService(collection *mongo.Collection, ctx context.Context) Excha
 
 func (es *ExchangeServiceImpl)	ConvertBalance(convData *models.ConvData) (*models.DBResponse,error){
 	var walletData *models.DBResponse 
+	
 	filter := bson.M{"email":strings.ToLower(convData.Email)}
 	err := es.collection.FindOne(es.ctx,filter).Decode(&walletData)
 	if err != nil {
@@ -41,7 +43,7 @@ func (es *ExchangeServiceImpl)	ConvertBalance(convData *models.ConvData) (*model
 
 	currentBal := models.ConvertToWallet(*walletData)
 
-	reqUri := "https://v6.exchangerate-api.com/v6/38a115464aa968dd3f9af5d0/pair/" + convData.FromCurr +"/"+convData.ToCurr+"/"+fmt.Sprintf("%v", convData.Amount)
+	reqUri := "https://v6.exchangerate-api.com/v6/38a115464aa968dd3f9af5d0/pair/GHS/"+convData.ToCurr+"/"+fmt.Sprintf("%v", convData.Amount)
  // Change the base currency if necessary
 	resp, err := http.Get(reqUri)
 	if err != nil {
