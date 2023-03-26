@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { RegisterForm } from 'src/app/types/RegisterForm';
@@ -11,7 +12,7 @@ import { BackendService } from 'src/app/services/backend.service';
 export class RegisterComponent implements OnInit  {
   registerForm!: FormGroup;
 
-  constructor(private backend:BackendService) {}
+  constructor(private backend:BackendService , private router:Router) {}
   ngOnInit(): void {
 
     this.registerForm = new FormGroup({
@@ -39,7 +40,9 @@ submit() {
 
   let data = new RegisterForm(this.registerForm.value.first_name, this.registerForm.value.last_name,this.registerForm.value.email, this.registerForm.value.password)
   this.backend.submitSignUp(data).subscribe((result) => {console.log(result)})
+  this.router.navigate(['/login'])
   console.log(this.registerForm)
+
   }
 
 }

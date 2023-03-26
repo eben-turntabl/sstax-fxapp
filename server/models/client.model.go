@@ -150,4 +150,3 @@ type DBResponse struct {
 	PorfolioID string   `json:"portfolio_id" bson:"portfolio_id"`
 }
 
-// {"first_name":"ben","last_name":"john","email":"kskskdj@jk.com","password"::"tonga"}

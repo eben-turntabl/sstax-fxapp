@@ -61,6 +61,7 @@ func ConvertToWallet(dbResp DBResponse) Wallet {
 		}{
 			Amount:   dbResp.Wallet.USD.Amount,
 			IsActive: dbResp.Wallet.USD.IsActive,
+			Currency: dbResp.Wallet.USD.Currency,
 			
 		},
 		GHS: struct {
@@ -70,6 +71,7 @@ func ConvertToWallet(dbResp DBResponse) Wallet {
 		}{
 			Amount:   dbResp.Wallet.GHS.Amount,
 			IsActive: dbResp.Wallet.GHS.IsActive,
+			Currency: dbResp.Wallet.GHS.Currency,
 
 			
 		},
@@ -80,6 +82,7 @@ func ConvertToWallet(dbResp DBResponse) Wallet {
 		}{
 			Amount:   dbResp.Wallet.KES.Amount,
 			IsActive: dbResp.Wallet.KES.IsActive,
+			Currency: dbResp.Wallet.KES.Currency,
 			
 		},
 		NGN: struct {
@@ -89,6 +92,8 @@ func ConvertToWallet(dbResp DBResponse) Wallet {
 		}{
 			Amount:   dbResp.Wallet.NGN.Amount,
 			IsActive: dbResp.Wallet.NGN.IsActive,
+			Currency: dbResp.Wallet.NGN.Currency,
+
 		},
 	}
 }
